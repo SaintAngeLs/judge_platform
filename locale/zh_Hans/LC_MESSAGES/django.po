@@ -3743,7 +3743,7 @@ msgid "This site works best with JavaScript enabled."
 msgstr "本网站启用 JavaScript 效果最好。"
 
 #: templates/base.html:283
-msgid "proudly powered by **DMOJ**"
+msgid "powered by **Online Judge**"
 msgstr ""
 
 #: templates/blog/content.html:13 templates/comments/list.html:89

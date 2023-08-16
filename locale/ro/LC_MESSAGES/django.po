@@ -3793,7 +3793,7 @@ msgid "This site works best with JavaScript enabled."
 msgstr "Acest site funcționează cel mai bine cu JavaScript activat."
 
 #: templates/base.html:283
-msgid "proudly powered by **DMOJ**"
+msgid "powered by **Online Judge**"
 msgstr ""
 
 #: templates/blog/content.html:13 templates/comments/list.html:89

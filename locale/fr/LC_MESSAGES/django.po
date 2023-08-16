@@ -3768,7 +3768,7 @@ msgid "This site works best with JavaScript enabled."
 msgstr "Ce site fonctionne mieux avec JavaScript activé."
 
 #: templates/base.html:283
-msgid "proudly powered by **DMOJ**"
+msgid "powered by **Online Judge**"
 msgstr "fièrement propulsé par **DMOJ**"
 
 #: templates/blog/content.html:13 templates/comments/list.html:89
