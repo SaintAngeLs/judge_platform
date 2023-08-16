@@ -1,0 +1,45 @@
+archive: barycentric.zip
+checker:
+  args:
+    precision: 6
+  name: floatsabs
+generator: generator.cpp
+hints:
+- unicode
+- nobigmath
+output_limit_length: 100000000
+pretest_test_cases:
+- checker: standard
+  in: barycentric.1.in
+  out: barycentric.1.out
+  points: 0
+test_cases:
+- checker: standard
+  in: barycentric.2.in
+  out: barycentric.2.out
+  points: 0
+- checker: standard
+  in: barycentric.1.in
+  out: barycentric.1.out
+  points: 1
+- checker:
+    args:
+      precision: 6
+    name: floatsabs
+  in: barycentric.2.in
+  out: barycentric.2.out
+  points: 1
+- checker:
+    args:
+      precision: 6
+    name: floatsabs
+  in: barycentric.1.in
+  out: barycentric.1.out
+  points: 1
+- checker:
+    args:
+      precision: 13
+    name: floatsabs
+  in: barycentric.2.in
+  out: barycentric.2.out
+  points: 2

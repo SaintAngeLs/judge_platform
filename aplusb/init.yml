@@ -1,0 +1,17 @@
+archive: aplusb.zip
+checker: standard
+hints:
+- unicode
+output_limit_length: 1000000
+output_prefix_length: 1000000
+pretest_test_cases:
+- in: aplusb.1.in
+  out: aplusb.1.out
+  points: 1
+test_cases:
+- in: aplusb.2.in
+  out: aplusb.2.out
+  points: 2
+- in: aplusb.3.in
+  out: aplusb.3.out
+  points: 2
