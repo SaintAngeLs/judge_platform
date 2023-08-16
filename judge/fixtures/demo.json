@@ -56,8 +56,8 @@
             "creation_date": "2017-12-02T08:50:25.199Z",
             "is_open": true,
             "slug": "dmoj",
-            "name": "DMOJ: Modern Online Judge",
-            "short_name": "DMOJ",
+            "name": "Online Judge",
+            "short_name": "JUDGE",
             "slots": null
         },
         "model": "judge.organization",

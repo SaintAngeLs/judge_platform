@@ -124,7 +124,7 @@ ADMINS = (
 
 
 # The sender for the aforementioned emails.
-SERVER_EMAIL = 'DMOJ: Modern Online Judge <errors@dmoj.ca>'
+SERVER_EMAIL = 'JUDGE: Online Judge <errors@dmoj.ca>'
 
 
 ##################################################
@@ -150,7 +150,7 @@ STATIC_ROOT = '/tmp/static/'
 
 ## DMOJ site display settings.
 SITE_NAME = 'DMOJ'
-SITE_LONG_NAME = 'DMOJ: Modern Online Judge'
+SITE_LONG_NAME = 'JUDGE: online judge'
 SITE_ADMIN_EMAIL = 'admin@example.com'
 TERMS_OF_SERVICE_URL = None
 
@@ -247,7 +247,7 @@ DMOJ_USER_DATA_INTERNAL = '/datacache'
 ## Pdfoid ##
 ############
 
-DMOJ_PDF_PDFOID_URL = 'http://localhost:8888'
+DMOJ_PDF_PDFOID_URL = 'http://127.0.0.1:8887'
 
 ############
 ## Texoid ##
