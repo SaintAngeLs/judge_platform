@@ -1,31 +1,32 @@
 archive: baryc.zip
 test_cases:
-- {points: 0.25, in: c1.in, out: c2.out}
+- {points: 0.25, in: c1.in, out: c1.out}
 - {points: 0.25, in: c2.in, out: c2.out}
 - points: 1
   batched:
   - {in: c2.in, out: c2.out}
   - {in: c3.in, out: c3.out}
-- points: 1
+  - points: 1
   batched:
   - {in: c1.in, out: c1.out}
   - {in: c2.in, out: c2.out}
-- points: 1
-  batched:
-  - {in: c1.in, out: c1.out}
-  - {in: c2.in, out: c2.out}
-  - {in: c3.in, out: c3.out}
-- points: 1
+  - points: 1
   batched:
   - {in: c1.in, out: c1.out}
   - {in: c2.in, out: c2.out}
   - {in: c3.in, out: c3.out}
   - points: 1
-batched:
+  batched:
+  - {in: c1.in, out: c1.out}
+  - {in: c2.in, out: c2.out}
+  - {in: c3.in, out: c3.out}
+  - points: 1
+  batched:
   - {in: c1.in, out: c1.out}
   - {in: c2.in, out: c2.out}
   - points: 0.5
-  dependencies: [1, 2]
+#  dependencies: [1, 2]
+
 
 
 
