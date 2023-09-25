@@ -401,6 +401,7 @@ LANGUAGES = [
     ('vi', _('Vietnamese')),
     ('zh-hans', _('Simplified Chinese')),
     ('zh-hant', _('Traditional Chinese')),
+    ('uk', _('Ukrainian')),
 ]
 
 BLEACH_USER_SAFE_TAGS = [

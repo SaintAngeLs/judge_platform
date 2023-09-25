@@ -3097,8 +3097,8 @@ div.dmmd-preview-stale {
   justify-content: center;
 }
 .submission-row .sub-result {
-  min-width: 80px;
-  width: 80px;
+  min-width: 100px;
+  width: 100px;
   text-align: center;
   border-bottom-color: #fff;
   border-right: #ccc 1px solid;
