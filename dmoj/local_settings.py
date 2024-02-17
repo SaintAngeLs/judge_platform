@@ -14,14 +14,15 @@ import os
 # to generate this key.
 SECRET_KEY = '5*9f5q57mqmlz2#f$x1h76&jxy#yortjl1v+l*6hd18$d*yx#0'
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-HOST = 'localhost'
+HOST = 'judge-system.com'
 
 
 # Uncomment and set to the domain names this site is intended to serve.
 # You must do this once you set DEBUG to False.
-ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 't.go.sohu.com','157.230.89.181', 
+ 'www.judge-system.com', 'judge-system.com']
 
 # Optional apps that DMOJ can make use of.
 INSTALLED_APPS += ()
@@ -50,8 +51,8 @@ DATABASES = {
     # }
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'dmoj',
-        'USER': 'dmoj',
+        'NAME': 'online_judge_bd',
+        'USER': 'root',
         'PASSWORD': '655740550880',
         'HOST': 'localhost',
         'OPTIONS': {
@@ -92,22 +93,26 @@ STATICFILES_FINDERS += ('compressor.finders.CompressorFinder',)
 # for more documentation. You should follow the information there to define 
 # your email settings.
 
-# Use this if you are just testing.
-#EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# Use this if you are just testing. -----  using the smtp not for the 
+#                                          test but console is
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+#EMAIL_BACKEND = 'django_mailgun_mime.backends.MailgunMIMEBackend'
 
 # The following block is included for your convenience, if you want 
 # to use Gmail.
-#EMAIL_USE_TLS = True
-#EMAIL_HOST = 'smtp.gmail.com'
-#EMAIL_HOST_USER = '<your account>@gmail.com'
-#EMAIL_HOST_PASSWORD = '<your password>'
-#EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.office365.com'
+EMAIL_HOST_USER = 'justice-usms-system@outlook.com'
+SERVER_EMAIL = EMAIL_HOST_USER
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+EMAIL_HOST_PASSWORD = 'Justice_3141592'
+EMAIL_PORT = 587
 
 # To use Mailgun, uncomment this block.
 # You will need to run `pip install django-mailgun` for to get `MailgunBackend`.
-EMAIL_BACKEND = 'django_mailgun.MailgunBackend'
-MAILGUN_ACCESS_KEY = 'e5184c88f02a51a21762f4287013d4c9-ee16bf1a-3546c863'
-MAILGUN_SERVER_NAME = 'smtp.mailgun.org'
+#EMAIL_BACKEND = 'django_mailgun.MailgunBackend'
+#MAILGUN_ACCESS_KEY = '27d5bf025cc33b59f933e0b2413559a8-f0e50a42-6f155d28'
+#MAILGUN_SERVER_NAME = 'smtp.mailgun.org'
 
 # You can also use Sendgrid, with `pip install sendgrid-django`.
 #EMAIL_BACKEND = 'sgbackend.SendGridBackend'
@@ -119,12 +124,12 @@ MAILGUN_SERVER_NAME = 'smtp.mailgun.org'
 # A tuple of (name, email) pairs that specifies those who will be mailed
 # when the server experiences an error when DEBUG = False.
 ADMINS = (
-    ('Your Name', 'voznesenskijandrej5@gmail.com'),
+    ('admin', 'voznesenskijandrej5@gmail.com'),
 )
 
 
 # The sender for the aforementioned emails.
-SERVER_EMAIL = 'JUDGE: Online Judge <errors@dmoj.ca>'
+#SERVER_EMAIL = 'JUDGE: Online Judge <justice-usms-system@outlook.com>'
 
 
 ##################################################
@@ -139,29 +144,32 @@ SERVER_EMAIL = 'JUDGE: Online Judge <errors@dmoj.ca>'
 STATIC_ROOT = '/tmp/static/'
 
 # URL to access static files.
-#STATIC_URL = '/static/'
+STATIC_URL = '/static/'
 
 # Uncomment to use hashed filenames with the cache framework.
-#TATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
 
 ############################################
 ########## DMOJ-specific settings ##########
 ############################################
 
 ## DMOJ site display settings.
-SITE_NAME = 'DMOJ'
+SITE_NAME = 'Judge'
 SITE_LONG_NAME = 'JUDGE: online judge'
-SITE_ADMIN_EMAIL = 'admin@example.com'
+SITE_ADMIN_EMAIL = 'voznesenskijandrej5@gmail.com'
 TERMS_OF_SERVICE_URL = None
 
 ## Bridge controls.
 # The judge connection address and port; where the judges will connect to the site.
 # You should change this to something your judges can actually connect to 
 # (e.g., a port that is unused and unblocked by a firewall).
-BRIDGED_JUDGE_ADDRESS = [('localhost', 9999)]
+BRIDGED_JUDGE_ADDRESS = [('judge-system.com', 9999),
+ ('judge-system.com', 9996),
+ ('judge-system.com', 9994),
+ ('judge-system.com', 9992)]
 
 # The bridged daemon bind address and port to communicate with the site.
-#BRIDGED_DJANGO_ADDRESS = [('bridged', 9998)]
+#BRIDGED_DJANGO_ADDRESS = [('judge-system.com', 9997)]
 
 ## DMOJ features.
 # Set to True to enable full-text searching for problems.
@@ -220,11 +228,11 @@ TIMEZONE_MAP = 'http://naturalearth.springercarto.com/ne3_data/8192/textures/3_n
 # Set to 0 to make http URLs canonical.
 # Set to 1 to make the currently used protocol canonical.
 # Set to 2 to make https URLs canonical.
-#DMOJ_HTTPS = 0
+DMOJ_HTTPS = 2
 
 ## PDF rendering settings.
 # Directory to cache the PDF.
-DMOJ_PDF_PROBLEM_CACHE = '/tmp'
+DMOJ_PDF_PROBLEM_CACHE = '/home/pdfcache'
 
 # Path to use for nginx's X-Accel-Redirect feature.
 # Should be an internal location mapped to the above directory.
@@ -247,7 +255,8 @@ DMOJ_USER_DATA_INTERNAL = '/datacache'
 ## Pdfoid ##
 ############
 
-DMOJ_PDF_PDFOID_URL = 'http://127.0.0.1:8887'
+DMOJ_PDF_PDFOID_URL = 'http://localhost:8887'
+
 
 ############
 ## Texoid ##
@@ -278,11 +287,18 @@ LOGGING = {
             'formatter': 'file',
         },
     },
-    'loggers': {
+     'loggers': {
+        # Catch all logs to stderr.
         '': {
             'handlers': ['console'],
-            'level': 'DEBUG',
+	    'level': 'DEBUG',
         },
+        # Other loggers of interest. Configure at will.
+        #  - judge.user: logs naughty user behaviours.
+        #  - judge.problem.pdf: PDF generation log.
+        #  - judge.html: HTML parsing errors when processing problem statements etc.
+        #  - judge.mail.activate: logs for the reply to activate feature.
+        #  - event_socket_server
     },
 }
 
@@ -305,15 +321,19 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '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'
 
 # Uncomment if you're using HTTPS to ensure CSRF and session cookies are
 # sent only with an HTTPS connection.
-#CSRF_COOKIE_SECURE = True
-#SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
 
 REGISTRATION_OPEN = False
 DMOJ_RATING_COLORS = True
 X_FRAME_OPTIONS = 'DENY'
 
-CELERY_BROKER_URL = 'redis://localhost:6379'
-CELERY_RESULT_BACKEND = 'redis://localhost:6379'
+# == reCAPTCHA Settings ==
+RECAPTCHA_PUBLIC_KEY =  '6LcHa8QnAAAAAPM3ohKPzwrmmxwOW5aXM7O6a4nS'
+RECAPTCHA_PRIVATE_KEY = '6LcHa8QnAAAAAPgzShGTsrMc2cVyIkf6wFPQvafU'
+
+CELERY_BROKER_URL = 'redis://judge-system.com:6379'
+CELERY_RESULT_BACKEND = 'redis://judge-system.com:6379'
 
 DMOJ_PROBLEM_DATA_ROOT = '/problems/'
 

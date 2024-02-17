@@ -1,0 +1,2 @@
+#!/bin/bash
+/root/webapps/online-judge/judgesite/bin/dmoj -c ./judge2.yml judge-system.com

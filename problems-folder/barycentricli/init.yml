@@ -1,79 +1,31 @@
-archive: barycentric..zip
+archive: baryc.zip
 test_cases:
-- checker: standard
-  in: barycentric.1.in
-  out: barycentric.1.out
-  points: 0.25
-- checker: standard
-  in: barycentric.2.in
-  out: barycentric.2.out
-  points: 0.25
-- checker: standard
-  in: barycentric.1.in
-  out: barycentric.1.out
-  points: 0.25
-- checker:
-    args:
-      precision: 6
-    name: floatsabs
-  in: barycentric.2.in
-  out: barycentric.2.out
-  points: 0.25
-- checker:
-    args:
-      precision: 10
-    name: floatsabs
-  in: barycentric.1.in
-  out: barycentric.1.out
-  points: 0.5
-- checker:
-    args:
-      precision: 10
-    name: floatsabs
-  in: barycentric.2.in
-  out: barycentric.2.out
-  points: 0.5
-- checker:
-    args:
-      precision: 13
-    name: floatsabs
-  in: barycentric.1.in
-  out: barycentric.1.out
-  points: 0.5
-- checker:
-    args:
-      precision: 13
-    name: floatsabs
-  in: barycentric.2.in
-  out: barycentric.2.out
-  points: 0.5
-- checker:
-    args:
-      precision: 10
-    name: floatsabs
-  in: barycentric.1.in
-  out: barycentric.1.out
-  points: 0.5
-- checker:
-    args:
-      precision: 16
-    name: floatsabs
-  in: barycentric.2.in
-  out: barycentric.2.out
-  points: 0.5
-- checker:
-    args:
-      precision: 16
-    name: floatsabs
-  in: barycentric.1.in
-  out: barycentric.1.out
-  points: 0.5
-- checker:
-    args:
-      precision: 16
-    name: floatsabs
-  in: barycentric.2.in
-  out: barycentric.2.out
-  points: 0.5
+- {points: 0.25, in: c1.in, out: c1.out}
+- {points: 0.25, in: c2.in, out: c2.out}
+- points: 1
+  batched:
+  - {in: c2.in, out: c2.out}
+  - {in: c3.in, out: c3.out}
+- points: 1
+  batched:
+  - {in: c1.in, out: c1.out}
+  - {in: c2.in, out: c2.out}
+- points: 1
+  batched:
+  - {in: c1.in, out: c1.out}
+  - {in: c2.in, out: c2.out}
+  - {in: c3.in, out: c3.out}
+- points: 1
+  batched:
+  - {in: c1.in, out: c1.out}
+  - {in: c2.in, out: c2.out}
+  - {in: c3.in, out: c3.out}
+  - points: 1
+batched:
+  - {in: c1.in, out: c1.out}
+  - {in: c2.in, out: c2.out}
+  - points: 0.5
+ # dependencies: [1, 2]
+
 
 

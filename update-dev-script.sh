@@ -11,10 +11,10 @@
 #python3 manage.py check
 
 # Update static files
-./make_style.sh
-#python3 manage.py collectstatic --noinput
-#python3 manage.py compilemessages
-#python3 manage.py compilejsi18n
+#./make_style.sh
+python3 manage.py collectstatic --noinput
+python3 manage.py compilemessages
+python3 manage.py compilejsi18n
 
 # Run the server
-python3 manage.py runserver 127.0.0.1:8000
+#python3 manage.py runserver 127.0.0.1:8000

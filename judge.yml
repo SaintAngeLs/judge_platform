@@ -5,7 +5,9 @@ key: "mmG9tyTfoYPoDfSUXg4MsTnlsLNi7DDORpMnh8BZ8n0MtOn0k/jSPzVj2vcdS0iZjq3GUT9YPJ
 # Where to look for problems on the local filesystem.
 # Any directory matching any of the following globs with an init.yml file is assumed to be a problem directory.
 problem_storage_globs:
-  - /home/kaliuser/Documents/portfolio/commercial_apps/online-judge/site/problems-folder/*  # matches /mnt/problems/folder1/<problem>
+  # - /root/webapps/online-judge/judge_platform/problems-folder/*  # matches /mnt/problems/folder1/<problem>
+   - /mnt/problems-folder/*
+ # - /problems-folder/*
  # - /mnt/problems/folder2/**/  # matches any subfolder of /mnt/problems/folder2
  # - /mnt/problems/folder3/year20[0-9][0-9]  # matches /mnt/problems/folder3/year2023, for example
 # All configuration for language executors.

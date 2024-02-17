@@ -1,3 +1,4 @@
+
 """
 Django settings for dmoj project.
 
@@ -25,12 +26,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 SECRET_KEY = '5*9f5q57mqmlz2#f$x1h76&jxy#yortjl1v+l*6hd18$d*yx#0'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = []
 
 SITE_ID = 2
-SITE_NAME = 'DMOJ'
+SITE_NAME = 'Judge'
 SITE_LONG_NAME = 'Online Judge'
 SITE_ADMIN_EMAIL = ''
 
@@ -91,9 +92,9 @@ DMOJ_USER_DATA_DOWNLOAD_RATELIMIT = datetime.timedelta(days=1)
 DMOJ_COMMENT_VOTE_HIDE_THRESHOLD = -5
 DMOJ_COMMENT_REPLY_TIMEFRAME = datetime.timedelta(days=365)
 
-DMOJ_PDF_PDFOID_URL = 'http://localhost:8887'
+DMOJ_PDF_PDFOID_URL = 'https://judge-system.com'
 # Optional but recommended to save resources, path on disk to cache PDFs
-DMOJ_PDF_PROBLEM_CACHE = '/tmp'
+# DMOJ_PDF_PROBLEM_CACHE = '/home/pdfcache'
 # Optional, URL serving DMOJ_PDF_PROBLEM_CACHE with X-Accel-Redirect
 DMOJ_PDF_PROBLEM_INTERNAL = '/pdfcache'
 
@@ -169,7 +170,7 @@ else:
 
     WPADMIN = {
         'admin': {
-            'title': 'DMOJ Admin',
+            'title': 'JUDGE Admin',
             'menu': {
                 'top': 'wpadmin.menu.menus.BasicTopMenu',
                 'left': 'wpadmin.menu.custom.CustomModelLeftMenuWithDashboard',
@@ -270,6 +271,7 @@ INSTALLED_APPS += (
     'django_jinja',
     'martor',
     'adminsortable2',
+    'snowpenguin.django.recaptcha2'
 )
 
 MIDDLEWARE = (
@@ -385,22 +387,24 @@ LOCALE_PATHS = [
 LANGUAGES = [
     ('ca', _('Catalan')),
     ('de', _('German')),
-    ('el', _('Greek')),
+  # ('el', _('Greek')),
     ('en', _('English')),
-    ('es', _('Spanish')),
+  # ('es', _('Spanish')),
     ('fr', _('French')),
-    ('hr', _('Croatian')),
-    ('hu', _('Hungarian')),
+  # ('hr', _('Croatian')),
+  #  ('hu', _('Hungarian')),
     ('ja', _('Japanese')),
     ('ko', _('Korean')),
-    ('pt', _('Brazilian Portuguese')),
+  # ('pt', _('Brazilian Portuguese')),
     ('ro', _('Romanian')),
-    ('ru', _('Russian')),
+  # ('ru', _('Russian')),
     ('sr-latn', _('Serbian (Latin)')),
     ('tr', _('Turkish')),
-    ('vi', _('Vietnamese')),
+  # ('vi', _('Vietnamese')),
     ('zh-hans', _('Simplified Chinese')),
     ('zh-hant', _('Traditional Chinese')),
+    ('pl', _('Polish')),
+    ('uk', _('Ukrainian')),
 ]
 
 BLEACH_USER_SAFE_TAGS = [
@@ -513,15 +517,15 @@ DATABASES = {
 ENABLE_FTS = False
 
 # Bridged configuration
-BRIDGED_JUDGE_ADDRESS = [('localhost', 9999)]
+BRIDGED_JUDGE_ADDRESS = [('judge-system.com', 9999)]
 BRIDGED_JUDGE_PROXIES = None
-BRIDGED_DJANGO_ADDRESS = [('localhost', 9998)]
+BRIDGED_DJANGO_ADDRESS = [('judge-system.com', 9997)]
 BRIDGED_DJANGO_CONNECT = None
 
 # Event Server configuration
 EVENT_DAEMON_USE = False
-EVENT_DAEMON_POST = 'ws://localhost:9997/'
-EVENT_DAEMON_GET = 'ws://localhost:9996/'
+EVENT_DAEMON_POST = 'ws://judge-server:9997/'
+EVENT_DAEMON_GET = 'ws://judge-server:9996/'
 EVENT_DAEMON_POLL = '/channels/'
 EVENT_DAEMON_KEY = None
 EVENT_DAEMON_AMQP_EXCHANGE = 'dmoj-events'
