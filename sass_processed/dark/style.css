@@ -3502,8 +3502,8 @@ div.dmmd-preview-stale {
 }
 
 .submission-row .sub-result {
-  min-width: 100px;
-  width: 100px;
+  min-width: 80px;
+  width: 80px;
   text-align: center;
   border-bottom-color: #0f0f0f;
   border-right: #3b3b3b 1px solid;

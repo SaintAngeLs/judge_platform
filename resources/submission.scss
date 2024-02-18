@@ -308,12 +308,13 @@ label[for="language"], label[for="status"] {
             align-items: flex-start;
             text-align: left;
             justify-content: flex-start; 
+            color: black;
             
             table {
                 border-collapse: collapse;
                 border-bottom: 3px solid lightgray;
                 
-                th {
+                th, td {
                     padding: 1px 12px;
                     color: #636363; /* A slight gray shade for header */
                 }

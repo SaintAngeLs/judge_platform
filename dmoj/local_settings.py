@@ -14,7 +14,7 @@ import os
 # to generate this key.
 SECRET_KEY = '5*9f5q57mqmlz2#f$x1h76&jxy#yortjl1v+l*6hd18$d*yx#0'
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 HOST = 'judge-system.com'
 
@@ -49,10 +49,22 @@ DATABASES = {
     #         'sql_mode': 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION',
     #     },
     # }
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.mysql',
+    #     'NAME': 'online_judge_bd',
+    #     'USER': 'root',
+    #     'PASSWORD': '655740550880',
+    #     'HOST': 'localhost',
+    #     'OPTIONS': {
+    #         'charset': 'utf8mb4',
+    #         'sql_mode': 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION',
+    #     },
+    # },
+    # Development
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'online_judge_bd',
-        'USER': 'root',
+        'NAME': 'dmoj',
+        'USER': 'dmoj',
         'PASSWORD': '655740550880',
         'HOST': 'localhost',
         'OPTIONS': {
@@ -144,7 +156,7 @@ ADMINS = (
 STATIC_ROOT = '/tmp/static/'
 
 # URL to access static files.
-STATIC_URL = '/static/'
+STATIC_URL = '/tmp/static/'
 
 # Uncomment to use hashed filenames with the cache framework.
 STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
@@ -232,7 +244,7 @@ DMOJ_HTTPS = 2
 
 ## PDF rendering settings.
 # Directory to cache the PDF.
-DMOJ_PDF_PROBLEM_CACHE = '/home/pdfcache'
+DMOJ_PDF_PROBLEM_CACHE = '/home/kaliuser/Documents/portfolio/commercial_apps/online-judge/site/pdfcache'
 
 # Path to use for nginx's X-Accel-Redirect feature.
 # Should be an internal location mapped to the above directory.
